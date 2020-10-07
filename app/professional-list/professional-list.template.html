@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="container" ng-repeat="professional in $ctrl.professionals | limitTo:limitProfessional" >
+    <div ng-if="professional.id === 1">
+      <h1>Presentacion</h1>
+      <h3>{{ professional.name }}</h3>
+      <hr>
+      <div class="row">
+          
+        <!-- Div que contiene la imagen del profesor -->
+        <div class="col-sm-3">
+            <section class="panel">
+                <div class="panel-body" align="center">
+                    <img ng-src="{{ professional.image }}" class="img-circle" alt="" width="150px" height="150px">
+                </div>
+            </section>
+        </div>
+
+        <!-- Div, donde se mostrará la bio del profesor -->
+        <div class="col-sm-9">
+            <section class="panel">
+                <div class="panel-body">
+                    {{ professional.about }}
+                    <br>
+                    <br>
+                    <strong>Conocimientos:</strong> 
+                    <br>{{ professional.knowledge }}   
+                    <br>
+                </div>
+            </section>
+        </div>
+
+      </div>
+      <div class="card" ng-repeat="work in professional.work_experience">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>{{ work.company }}:</strong> <br> {{ work. company_description}}</li>
+          <li class="list-group-item"><strong>{{ work.job }}</strong> <br> {{ work. description}}</li>
+          <li class="list-group-item">Inicio: {{ work.start_date }} Termino: {{ work. end_date}}</li>
+        </ul>
+      </div>
+      <h4>{{ professional.experience }}</h4>
+    </div>
+
+  </div>
+
+  </div>
